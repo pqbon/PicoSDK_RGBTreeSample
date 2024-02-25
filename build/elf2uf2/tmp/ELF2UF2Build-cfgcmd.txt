@@ -1,1 +1,0 @@
-cmd='/opt/local/bin/cmake;-DCMAKE_MAKE_PROGRAM:FILEPATH=/opt/local/bin/ninja;-GNinja;<SOURCE_DIR><SOURCE_SUBDIR>'

@@ -1,3 +1,0 @@
-/Users/wdeutsch/Source/PicoSDK_RGBTreeSample/build/pioasm/CMakeFiles/pioasm.dir
-/Users/wdeutsch/Source/PicoSDK_RGBTreeSample/build/pioasm/CMakeFiles/edit_cache.dir
-/Users/wdeutsch/Source/PicoSDK_RGBTreeSample/build/pioasm/CMakeFiles/rebuild_cache.dir
