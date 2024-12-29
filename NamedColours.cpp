@@ -1,11 +1,14 @@
-#pragma once
+module;
 
-#include "RGBTree.h"
-#include <map>
-#include <string>
+#include  <map>
+#include  <string_view>
 
-namespace ThePiHut {
-std::map<std::string, Colour const> const NamedColour {
+export module NamedColours;
+import Colours;
+
+export namespace ThePiHut {
+
+std::map<std::string_view, Colour const> const NamedColour {
     {"aliceblue",             Colour(0xf0f8ff)},
     {"antiquewhite",          Colour(0xfaebd7)},
     {"aqua",                  Colour(0x00ffff)},

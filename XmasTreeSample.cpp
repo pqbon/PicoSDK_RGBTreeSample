@@ -4,8 +4,9 @@
 #include "hardware/clocks.h"
 #include "pio_spi.h"
 
-#include "RGBTree.h"
-#include "NamedColours.h"
+import RGBTree;
+import Colours;
+import NamedColours;
 
 int main()
 {

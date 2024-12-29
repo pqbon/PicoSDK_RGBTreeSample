@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.13)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_SCAN_FOR_MODULES true)
 
 # Initialise pico_sdk from installed location
 # (note this can come from environment, CMake cache etc)
@@ -23,9 +24,21 @@ project(RGBTreeSample C CXX ASM)
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
+add_compile_options("-fmodules-ts")
+
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(RGBTreeSample XmasTreeSample.cpp RGBTree.cpp pio_spi.cpp)
+add_executable(RGBTreeSample)
+
+target_sources(RGBTreeSample
+  PUBLIC
+    FILE_SET all_my_modules TYPE CXX_MODULES FILES
+    Colours.cpp NamedColours.cpp RGBTreeMod.cpp
+)
+
+target_sources(RGBTreeSample PRIVATE
+    pio_spi.cpp XmasTreeSample.cpp
+)
 
 pico_generate_pio_header(RGBTreeSample ${CMAKE_CURRENT_LIST_DIR}/spi.pio)
 
@@ -38,7 +51,8 @@ pico_enable_stdio_usb(RGBTreeSample 0)
 # Add the standard library to the build
 target_link_libraries(RGBTreeSample
         pico_stdlib
-        hardware_pio)
+        hardware_pio
+        )
 
 # Add the standard include files to the build
 target_include_directories(RGBTreeSample PRIVATE
@@ -53,4 +67,3 @@ target_link_libraries(RGBTreeSample
         )
 
 pico_add_extra_outputs(RGBTreeSample)
-
